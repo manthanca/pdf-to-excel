@@ -4,6 +4,11 @@ MRACA Smart Contract Note Converter — Windows Launcher
 Starts the Streamlit server and opens the app in the default browser.
 """
 
+# MUST be the very first thing — prevents PyInstaller from re-spawning
+# the exe in an infinite loop on Windows (multiprocessing freeze fix).
+import multiprocessing
+multiprocessing.freeze_support()
+
 import os
 import sys
 import subprocess
